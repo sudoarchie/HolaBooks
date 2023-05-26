@@ -1,18 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item
-        android:title="Home"
-        android:id="@+id/home"
-        android:icon="@drawable/house"/>
-
-    <item
-        android:title="share"
-        android:id="@+id/sharing"
-        android:icon="@drawable/sharing"/>
-    <item
-        android:title="Rate"
-        android:id="@+id/rate"
-        android:icon="@drawable/star"/>
-
-</menu>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"/>

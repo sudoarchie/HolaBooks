@@ -7,7 +7,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,11 +15,10 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
-import java.net.BindException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    ArrayList<SetsModel>list;
+    ArrayList<SetsModel> list;
     SetsAdapter adapter;
     RecyclerView recyclerView;
 
@@ -36,10 +34,9 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         recyclerView = findViewById(R.id.recyclerView);
 
-        menu = findViewById(R.id.recyclerView);
-        navigationView = (NavigationView)findViewById(R.id.navmenu);
-        drawerLayout = (DrawerLayout)findViewById(R.id.drawerLayout);
-
+        menu = findViewById(R.id.menu);
+        navigationView = findViewById(R.id.navmenu);
+        drawerLayout = findViewById(R.id.drawerLayout);
 
         list = new ArrayList<>();
 
@@ -56,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         list.add(new SetsModel("SET 9"));
         list.add(new SetsModel("SET 10"));
 
-
         adapter = new SetsAdapter(list, this);
         recyclerView.setAdapter(adapter);
         header = navigationView.getHeaderView(0);
@@ -64,53 +60,33 @@ public class MainActivity extends AppCompatActivity {
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                     drawerLayout.closeDrawer(GravityCompat.START);
-                }
-                else {
+                } else {
                     drawerLayout.openDrawer(GravityCompat.START);
                 }
             }
         });
 
-
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                switch (item.getItemId()){
-
-                    case R.id.home:
-
-                        Toast.makeText(MainActivity.this, "Home", Toast.LENGTH_SHORT).show();
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-
-                    case R.id.sharing:
-
-                        Toast.makeText(MainActivity.this, "Share", Toast.LENGTH_SHORT).show();
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-
-                    case R.id.rate:
-
-                        Toast.makeText(MainActivity.this, "Rate", Toast.LENGTH_SHORT).show();
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-
-
-
-                }
-
-
-
-
-
-                return true;
-            }
-        });
-
-
+//        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                switch (item.getItemId()) {
+//                    case R.id.home:
+//                        Toast.makeText(MainActivity.this, "Home", Toast.LENGTH_SHORT).show();
+//                        drawerLayout.closeDrawer(GravityCompat.START);
+//                        break;
+//                    case R.id.sharing:
+//                        Toast.makeText(MainActivity.this, "Share", Toast.LENGTH_SHORT).show();
+//                        drawerLayout.closeDrawer(GravityCompat.START);
+//                        break;
+//                    case R.id.rate:
+//                        Toast.makeText(MainActivity.this, "Rate", Toast.LENGTH_SHORT).show();
+//                        drawerLayout.closeDrawer(GravityCompat.START);
+//                        break;
+//                }
+//                return true;
+//            }
+//        });
     }
 }
